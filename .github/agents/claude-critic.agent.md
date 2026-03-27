@@ -2,7 +2,6 @@
 name: Claude Critic
 description: "Use when reviewing an article for logic, evidence quality, sharpness, or consistency of persona in nexus-chronicles. Keywords: critique, review, challenge, coherence, argument quality, weak claims."
 tools: [read, search, edit]
-model: "Claude Sonnet 4.5 (copilot)"
 argument-hint: "Article path and the review focus, such as logic, tone, persona, or citation quality."
 user-invocable: true
 ---

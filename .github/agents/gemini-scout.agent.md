@@ -2,7 +2,6 @@
 name: Gemini Scout
 description: "Use when scouting themes, mapping related articles, finding expansion angles, or planning cross-language citation opportunities for nexus-chronicles. Keywords: scout, theme map, related topics, citations, expansion, discovery."
 tools: [read, search, todo]
-model: "Gemini 2.5 Pro (copilot)"
 argument-hint: "Theme, language zone, target readers, and what kind of opportunities you want to discover."
 user-invocable: true
 ---

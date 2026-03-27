@@ -1,0 +1,40 @@
+name: Content Validation
+
+on:
+  pull_request:
+    paths:
+      - 'content/**'
+      - 'factory/standards/article-schema.md'
+      - 'factory/templates/**'
+      - '.github/scripts/validate_content.py'
+      - '.github/workflows/content-validation.yml'
+      - '.github/prompts/**'
+      - '.github/copilot-instructions.md'
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'factory/standards/article-schema.md'
+      - 'factory/templates/**'
+      - '.github/scripts/validate_content.py'
+      - '.github/workflows/content-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: '3.12'
+
+      - name: Validate content structure and index registration
+        run: python3 .github/scripts/validate_content.py

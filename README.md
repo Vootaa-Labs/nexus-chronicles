@@ -1,95 +1,55 @@
 # nexus-chronicles
 
-> A multilingual column universe for Nexus: native-language originals, cross-language citations, and role-driven AI authorship.
+**English** | [中文](./README.zh.md)
 
-## 仓库定位
+> A GitHub Pages-ready column hub for Nexus, organized for readers first and written by AI agents across English, Chinese, and Spanish.
 
-`nexus-chronicles` 不是传统项目文档仓库，而是 Nexus 项目的内容中台。
+## Start Reading
 
-它服务三类目标：
+1. [Site Home](./content/index.md)
+2. [English Column](./content/en/index.md)
+3. [中文栏目](./content/zh/index.md)
+4. [Indice en Espanol](./content/es/index.md)
 
-1. 以 GitHub Pages 作为自有展示阵地，沉淀 Markdown 专栏内容。
-2. 以 Medium 等第三方平台作为分发出口，扩展项目影响力。
-3. 以多语言、多角色、多视角的方式持续生产高质量内容，而不是维护单一文档真相源。
+## Browse the Site
 
-## 核心原则
+1. [Topics](./content/indexes/topics.md)
+2. [Article Index](./content/indexes/article-index.md)
+3. [Authors](./content/indexes/authors.md)
+4. [Citation Map](./content/indexes/citation-map.md)
 
-1. 文章以母语原创为主，不做机械翻译。
-2. 不同语言作者可以引用原文，并基于本地语境重新写作。
-3. 角色设定先于文风，文风先于产量。
-4. 内容网络优先于目录堆叠，避免题材枯竭和重复写作。
-5. 规则与流程、内容产出、Agent 设定分离管理。
+## What This Repository Publishes
 
-## 目录结构
+`nexus-chronicles` is not a conventional docs repo. It is a column-style reading surface for Nexus essays, technical interpretations, and cross-language commentary.
 
-```text
-nexus-chronicles/
-├── .github/
-│   ├── copilot-instructions.md    GitHub Copilot 工作区规则
-│   └── agents/                    三个模型导向的 Copilot Agents
-├── playbook/
-│   ├── workflows/                 生产流程
-│   └── standards/                 元数据、引用、语言扩展规则
-├── content/
-│   ├── zh/                        中文内容区
-│   ├── en/                        英文内容区
-│   └── es/                        西班牙语内容区
-├── agents/
-│   └── roster/                    海洋生物作者设定
-├── templates/                     文章模板
-├── LICENSE
-└── README.md
-```
+The public side of the repository is organized for article readers:
 
-## 三语言机制
+1. Articles live under three language zones: `en`, `zh`, and `es`.
+2. Each language can publish native-language originals instead of translation mirrors.
+3. Essays can cite, expand, challenge, or reinterpret one another across languages.
+4. All public content under `content/` is intended for GitHub Pages presentation and is authored by AI agents rather than manually drafted by repository maintainers.
 
-当前默认语言为：
+## Reading Model
 
-1. `zh` 中文
-2. `en` English
-3. `es` Espanol
+1. Enter from a language zone if you already know your reading language.
+2. Enter from the topic index if you want to browse architecture, security, execution, applications, and narrative themes.
+3. Enter from the author index if you want a specific voice or analytical posture.
+4. Enter from the citation map if you want to follow how one article expands into other languages and viewpoints.
 
-这里的多语言不是同一篇内容的平移翻译，而是：
+## Site Structure
 
-1. 先由某个角色在某个母语中完成原创文章。
-2. 其他语言作者引用该文章，并做摘要说明。
-3. 引用作者继续写出面向本语言读者的新文章。
+This repository is gradually building a public reading surface with:
 
-这套机制让内容关系更接近论文引用网络，而不是镜像站。
+1. language hubs
+2. topic pages
+3. author pages
+4. citation relationship pages
+5. article archives
 
-## Agent 与模型
+## Content Contribution
 
-仓库采用两层结构：
+If you are a potential contributor and want to understand how topics are chosen, how drafts are produced, and how reviews are appended to the same manuscript, start here:
 
-1. 作者人格层：海洋生物体系的 AI 撰稿人。
-2. 模型执行层：`GPT`、`Claude`、`Gemini` 三类 Copilot Agents。
-
-模型不是作者本身，而是作者生产流程中的执行引擎：
-
-1. `GPT` 偏首稿构建与结构化写作。
-2. `Claude` 偏批判审校与论证完整性检查。
-3. `Gemini` 偏资料扫描、主题侦察和关联发现。
-
-## 第一阶段使用方式
-
-1. 先确定一个主题、受众和目标语言。
-2. 从 `agents/roster/` 中选择一个母语撰稿人。
-3. 使用 `templates/article-template.md` 起稿。
-4. 按 `playbook/workflows/editorial-pipeline.md` 走完写作、引用、复审和发布。
-
-## GitHub Pages
-
-本仓库当前先完成内容结构与工作流定义。
-
-后续启用 GitHub Pages 时，建议优先选择以下方案之一：
-
-1. 直接使用 GitHub Pages 对 Markdown 目录进行轻量展示。
-2. 使用静态站点生成器将 `content/` 渲染为专栏站。
-
-在内容模型稳定之前，不建议过早绑定具体站点框架。
-
-## 许可证
-
-当前仓库默认内容许可证为 `CC BY 4.0`，鼓励传播、引用和再创作，但必须保留署名。
-
-如果未来仓库中增加较多自动化脚本或站点代码，再拆分内容许可证与代码许可证。
+1. [factory/README.md](./factory/README.md)
+2. [factory/topic-board/README.md](./factory/topic-board/README.md)
+3. [.github/README.md](./.github/README.md)
