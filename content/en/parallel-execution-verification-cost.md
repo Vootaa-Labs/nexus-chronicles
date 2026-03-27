@@ -38,6 +38,18 @@ last_updated: 2026-03-28
 
 # Why Parallel Execution Is Worth the Verification Cost
 
+## Position And Scope / 立场与范围
+
+This essay is written from the standpoint of a systems researcher reading the public `nexus-node` repository, not from the standpoint of an internal product owner announcing roadmap certainty. That distinction matters. The argument here is limited to what the current repository structure, crate boundaries, comments, and test assets make reasonable to say.
+
+In that public codebase, Nexus presents itself as a settlement and evidence anchor node with a Rust workspace that includes consensus, networking, storage, execution, intent handling, RPC services, and tooling. That larger system context is important because `nexus-execution` is not an isolated experiment. It is one execution layer inside a broader validator architecture.
+
+## Industry Context: Why Parallel Execution Became A Serious Claim / 行业背景：为什么并行执行会变成一个严肃命题
+
+Across the broader protocol industry, parallel execution became attractive for a simple reason: shared-state execution pipelines hit throughput and latency limits long before demand for richer applications disappeared. Once more systems started promising higher transaction density, execution engines had to show not just more cores, but a more disciplined way to survive read-write contention.
+
+That is also why the topic is easy to oversell. In industry writing, "parallel execution" often appears as a performance slogan detached from the cost of validating speculative work. The stronger positioning is narrower: a protocol should talk about parallel execution only if it can also explain how conflicts are detected, how stale reads are invalidated, how retries are cleaned up, and how parallel outcomes remain comparable to a serial reference path.
+
 ## Thesis / 论点
 
 Parallel execution is only interesting for a protocol if it can remain legible under conflict. The useful claim is not that a system can run more work at once. The useful claim is that it can do so while preserving determinism, exposing validation rules, and proving that the parallel path does not drift away from a serial reference outcome.
@@ -47,6 +59,8 @@ Parallel execution is only interesting for a protocol if it can remain legible u
 Too much protocol writing treats parallelism as a throughput slogan. That is the wrong level of abstraction. Once a system allows concurrent reads and writes over shared state, the central problem is no longer speed alone. The central problem becomes coordination: who saw which version of state, which read must be invalidated, when a transaction must be re-executed, and how the final commit remains stable enough to trust.
 
 This is why the verification burden matters. A serious execution architecture has to make its concurrency costs explicit rather than hiding them behind headline numbers.
+
+For Nexus specifically, that framing also helps place the project inside the wider field. If `nexus-node` is positioning itself as a full validator and settlement stack rather than a single benchmark crate, then execution claims have to be judged as system claims. They need to fit the surrounding architecture of consensus, storage, RPC, and evidence handling, not just a local micro-benchmark story.
 
 ## The Top-Level Contract: `nexus-execution` Does Not Hide The Tradeoff / `nexus-execution` 顶层契约并未隐藏这种权衡
 
@@ -145,6 +159,7 @@ That is a better story than "faster." It is a story about making concurrency ins
 - 2026-03-28 draft refined with more explicit code anchors in `nexus-execution` and the FV differential runner.
 - 2026-03-28 revision applied after `orca-auditor` R-001: anchored `MvHashMap` methods, added `VersionCapExceeded` and retry-cleanup evidence, and clarified that the three-phase pipeline is exposed by module contract and executor logic.
 - 2026-03-28 local validation passed and manuscript advanced to `published`.
+- 2026-03-28 post-publication revision added systems-researcher scope, `nexus-node` stack context, and broader industry framing so the article no longer opens abruptly at the parallelism subtopic.
 
 ---
 

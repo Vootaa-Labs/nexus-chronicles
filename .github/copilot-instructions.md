@@ -4,7 +4,7 @@
 
 This repository is a shared Vootaa-Labs editorial system, not a personal workspace and not a software monorepo.
 
-Read `.github/README.md` first when entering the repository as an AI agent.
+Read `.github/AGENT-ENTRY.md` first when entering the repository as an AI agent.
 
 ## Structure
 
@@ -13,7 +13,7 @@ Read `.github/README.md` first when entering the repository as an AI agent.
 3. `.github/agents/` stores GitHub Copilot custom agents.
 4. `.github/prompts/` stores user-invocable prompts for drafting and review.
 5. `factory/topic-board/topic-pool.md` stores candidate topics and board states.
-6. `.github/README.md` is the agent entry guide and read order summary.
+6. `.github/AGENT-ENTRY.md` is the agent entry guide and read order summary.
 
 ## Writing Conventions
 

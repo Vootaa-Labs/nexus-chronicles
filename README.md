@@ -52,4 +52,4 @@ If you are a potential contributor and want to understand how topics are chosen,
 
 1. [factory/README.md](./factory/README.md)
 2. [factory/topic-board/README.md](./factory/topic-board/README.md)
-3. [.github/README.md](./.github/README.md)
+3. [.github/AGENT-ENTRY.md](./.github/AGENT-ENTRY.md)
