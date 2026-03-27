@@ -41,3 +41,7 @@ English | 中文 | Espanol
 1. All public article pages should keep SEO metadata in front matter.
 2. All published manuscripts should preserve the review trail at the end.
 3. Language zones can expand without changing the top-level structure.
+
+## Featured Essay
+
+1. [Why Parallel Execution Is Worth the Verification Cost](./en/parallel-execution-verification-cost.md)

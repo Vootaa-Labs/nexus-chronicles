@@ -32,17 +32,17 @@ Use one line per article:
 
 ## Current State / 当前状态 / Estado actual
 
-The first English draft is now registered. No published essays yet.
+The first English essay is now published and registered.
 
-第一篇英文草稿已经登记，当前还没有正式发布文章。
+第一篇英文文章现已正式发布并完成登记。
 
-El primer borrador en ingles ya esta registrado. Todavia no hay ensayos publicados.
+El primer ensayo en ingles ya fue publicado y registrado.
 
 ## English Archive / 英文归档 / Archivo en ingles
 
 ### Draft
 
-- [chronicle-0001 | Why Parallel Execution Is Worth the Verification Cost](../en/parallel-execution-verification-cost.md) - stage: draft - persona: octopus-architect - theme: execution-architecture
+No entries yet.
 
 ### Review
 
@@ -54,7 +54,7 @@ No entries yet.
 
 ### Published
 
-No entries yet.
+- [chronicle-0001 | Why Parallel Execution Is Worth the Verification Cost](../en/parallel-execution-verification-cost.md) - stage: published - persona: octopus-architect - theme: execution-architecture
 
 ## Chinese Archive / 中文归档 / Archivo en chino
 

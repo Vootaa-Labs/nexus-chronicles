@@ -52,4 +52,4 @@ Suggested format:
 - [chronicle-0001 | Title](./sample-title.md) - stage: draft - theme: execution-architecture
 ```
 
-- [chronicle-0001 | Why Parallel Execution Is Worth the Verification Cost](./parallel-execution-verification-cost.md) - stage: draft - theme: execution-architecture
+- [chronicle-0001 | Why Parallel Execution Is Worth the Verification Cost](./parallel-execution-verification-cost.md) - stage: published - theme: execution-architecture
