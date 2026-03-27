@@ -81,7 +81,7 @@ def parse_front_matter(text: str) -> dict[str, object]:
             current_list_key = key
             continue
 
-        metadata[key] = strip_quotes(value)
+        metadata[key] = parse_scalar(value)
 
     return metadata
 
@@ -90,6 +90,13 @@ def strip_quotes(value: str) -> str:
     if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
         return value[1:-1]
     return value
+
+
+def parse_scalar(value: str) -> object:
+    normalized = strip_quotes(value)
+    if normalized == "[]":
+        return []
+    return normalized
 
 
 def extract_markdown_targets(file_path: Path) -> set[str]:
