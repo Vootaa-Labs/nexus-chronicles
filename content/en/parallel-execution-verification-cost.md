@@ -29,6 +29,9 @@ fact_sources:
   - nexus-node/crates/nexus-execution/src/block_stm/adaptive.rs
   - nexus-node/tests/nexus-test-utils/src/fv_differential_runner.rs
   - nexus-node/proofs/differential/corpus/VO-EX-001_block_stm_determinism.json
+  - https://aptos.dev/network/blockchain/execution
+  - https://www.sei.io/
+  - https://docs.monad.xyz/
 publish_to:
   - github-pages
 stage: published
@@ -49,6 +52,14 @@ In that public codebase, Nexus presents itself as a settlement and evidence anch
 Across the broader protocol industry, parallel execution became attractive for a simple reason: shared-state execution pipelines hit throughput and latency limits long before demand for richer applications disappeared. Once more systems started promising higher transaction density, execution engines had to show not just more cores, but a more disciplined way to survive read-write contention.
 
 That is also why the topic is easy to oversell. In industry writing, "parallel execution" often appears as a performance slogan detached from the cost of validating speculative work. The stronger positioning is narrower: a protocol should talk about parallel execution only if it can also explain how conflicts are detected, how stale reads are invalidated, how retries are cleaned up, and how parallel outcomes remain comparable to a serial reference path.
+
+## Industry Comparison: Aptos, Sei, And Monad Explain The Market Pressure / 行业对照：Aptos、Sei 与 Monad 说明了市场压力来自哪里
+
+It is useful to place Nexus beside other execution narratives without pretending they are the same system. Aptos made the clearest public case for Block-STM style dynamic parallelism: ordered transactions, runtime conflict detection, and outputs that remain consistent with a preset order. That framing is close to the technical burden discussed in this essay, which is why Aptos is the most relevant comparison point for the execution-engine layer.
+
+Sei and Monad show a different part of the market. Their public positioning emphasizes a parallelized or high-performance runtime as part of a broader promise around low latency, scale, and smoother builder experience. That matters because it reveals what readers are now trained to hear: execution narratives are increasingly sold as performance narratives first.
+
+Nexus should not copy that positioning too literally. The stronger Nexus claim is not merely that it also participates in the parallel-execution race. The stronger claim is that, inside a broader validator architecture, it treats concurrency as something that must remain inspectable under conflict, not just fast in the happy path.
 
 ## Thesis / 论点
 
@@ -101,6 +112,12 @@ First, the execution path includes explicit validation and retry logic rather th
 Second, the repository includes differential test assets that compare execution behavior instead of merely checking whether the code compiles. The determinism corpus around `VO-EX-001_block_stm_determinism` is important not because it proves everything, but because it proves the team understands what must be tested.
 
 This is the right posture. Parallel execution should be judged by how much disagreement it can absorb before correctness starts to blur.
+
+## Why This Matters For Builders And Auditors / 为什么这对 Builders 与审计者都重要
+
+For builders, the practical question is not whether an execution engine sounds advanced. The practical question is whether application authors can rely on a runtime that does not force them to reason blindly about invisible contention, surprising invalidations, or unstable execution semantics. A legible execution layer lowers the cost of building because the failure model is easier to understand.
+
+For auditors, the bar is stricter. Parallel execution expands the surface where correctness can drift: stale reads, replay bugs, version accounting mistakes, and invalid assumptions about deterministic outcomes. That is why details such as `validate_read()`, retry cleanup through `remove_versions()`, explicit caps like `VersionCapExceeded`, and differential determinism corpus tests matter more than headline throughput. They are not implementation trivia. They are the evidence surface auditors need in order to decide whether a performance claim has engineering substance behind it.
 
 ## `AdaptiveParallelism` Encodes Conflict Economics / `AdaptiveParallelism` 直接编码了冲突经济学
 
@@ -160,6 +177,7 @@ That is a better story than "faster." It is a story about making concurrency ins
 - 2026-03-28 revision applied after `orca-auditor` R-001: anchored `MvHashMap` methods, added `VersionCapExceeded` and retry-cleanup evidence, and clarified that the three-phase pipeline is exposed by module contract and executor logic.
 - 2026-03-28 local validation passed and manuscript advanced to `published`.
 - 2026-03-28 post-publication revision added systems-researcher scope, `nexus-node` stack context, and broader industry framing so the article no longer opens abruptly at the parallelism subtopic.
+- 2026-03-28 post-publication revision added Aptos/Sei/Monad comparison and a builders-versus-auditors relevance section.
 
 ---
 

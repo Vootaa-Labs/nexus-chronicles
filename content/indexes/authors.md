@@ -16,27 +16,27 @@ Esta pagina presenta las voces publicas usadas por el sistema de columnas.
 
 ## Persona Table / 角色表 / Tabla de personajes
 
-| Persona | English Focus | 中文定位 | Enfoque en espanol | Best Column Families |
-|---|---|---|---|---|
-| `octopus-architect` | systems framing, interfaces, execution design | 系统分层、接口权衡、执行架构 | arquitectura de sistemas y diseno de ejecucion | Architecture, sharding, parallel systems |
-| `orca-auditor` | evidence discipline, risk exposure, security critique | 审计压力、风险识别、证据约束 | disciplina de evidencia y critica de seguridad | Security, formal verification, post-quantum |
-| `dolphin-explainer` | readable builder education, analogies, onboarding | 通俗科普、开发者解释、跨层说明 | divulgacion tecnica accesible y orientada a builders | Technical explainers, Rust, consensus |
-| `manta-observer` | industry context, product framing, ecosystem shifts | 行业观察、产品判断、生态变化 | contexto industrial, producto y cambios de ecosistema | Industry observation, AI, agents, blockchain narratives |
-| `nautilus-researcher` | long-horizon synthesis, conceptual evolution, theory-to-practice | 长周期研究、概念演化、理论到实践 | sintesis de largo plazo y evolucion conceptual | Haskell, verification, systems comparisons |
-| `swordfish-critic` | sharp counter-narrative and pressure testing | 反叙事、拆泡沫、施压式短评 | contranarrativa y pruebas de presion | Industry disputes, overclaim detection |
-| `jellyfish-curator` | aggregation, summaries, cross-article linking | 引用整理、摘要归档、关系整理 | curacion, resumenes y conexion entre textos | Citation maps, article clusters, multilingual bridges |
-| `seahorse-narrator` | product storytelling, scenario-led explanation | 场景叙事、产品解释、用户路径 | narrativa de producto y escenarios de uso | Applications, adoption stories, ecosystem onboarding |
+| Persona ID | Display Name | Role | English Focus | 中文定位 | Best Column Families |
+|---|---|---|---|---|---|
+| `octopus-architect` | Octavia | systems architect | systems framing, interfaces, execution design | 系统分层、接口权衡、执行架构 | Architecture, sharding, parallel systems |
+| `orca-auditor` | Kora | security and audit reviewer | evidence discipline, risk exposure, security critique | 审计压力、风险识别、证据约束 | Security, formal verification, post-quantum |
+| `dolphin-explainer` | Delphi | technical explainer | readable builder education, analogies, onboarding | 通俗科普、开发者解释、跨层说明 | Technical explainers, Rust, consensus |
+| `manta-observer` | Mira | industry observer | industry context, product framing, ecosystem shifts | 行业观察、产品判断、生态变化 | Industry observation, AI, agents, blockchain narratives |
+| `nautilus-researcher` | Nilo | long-horizon researcher | long-horizon synthesis, conceptual evolution, theory-to-practice | 长周期研究、概念演化、理论到实践 | Haskell, verification, systems comparisons |
+| `swordfish-critic` | Rook | adversarial critic | sharp counter-narrative and pressure testing | 反叙事、拆泡沫、施压式短评 | Industry disputes, overclaim detection |
+| `jellyfish-curator` | Juno | citation curator | aggregation, summaries, cross-article linking | 引用整理、摘要归档、关系整理 | Citation maps, article clusters, multilingual bridges |
+| `seahorse-narrator` | Sena | product narrator | product storytelling, scenario-led explanation | 场景叙事、产品解释、用户路径 | Applications, adoption stories, ecosystem onboarding |
 
 ## Writing Voices
 
-1. `octopus-architect` for architecture breakdowns and systems framing
-2. `orca-auditor` for audit pressure, risk exposure, and evidence discipline
-3. `dolphin-explainer` for builder-friendly technical explanation
-4. `manta-observer` for product, operations, and narrative observation
-5. `nautilus-researcher` for research-heavy essays and synthesis
-6. `swordfish-critic` for adversarial critique and sharp contrast writing
-7. `jellyfish-curator` for gentle framing, aggregation, and connective commentary
-8. `seahorse-narrator` for accessible long-form storytelling
+1. `octopus-architect` / Octavia for architecture breakdowns and systems framing
+2. `orca-auditor` / Kora for audit pressure, risk exposure, and evidence discipline
+3. `dolphin-explainer` / Delphi for builder-friendly technical explanation
+4. `manta-observer` / Mira for product, operations, and narrative observation
+5. `nautilus-researcher` / Nilo for research-heavy essays and synthesis
+6. `swordfish-critic` / Rook for adversarial critique and sharp contrast writing
+7. `jellyfish-curator` / Juno for gentle framing, aggregation, and connective commentary
+8. `seahorse-narrator` / Sena for accessible long-form storytelling
 
 ## Recommended Reading Choices / 阅读建议 / Sugerencias de lectura
 
