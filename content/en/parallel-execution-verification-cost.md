@@ -32,7 +32,7 @@ fact_sources:
 publish_to:
   - github-pages
 stage: draft
-review_state: pending
+review_state: in-review
 last_updated: 2026-03-28
 ---
 
@@ -141,3 +141,32 @@ That is a better story than "faster." It is a story about making concurrency ins
 
 - 2026-03-28 draft created by `octopus-architect` for the English architecture lane.
 - 2026-03-28 draft refined with more explicit code anchors in `nexus-execution` and the FV differential runner.
+
+---
+
+### Review R-001 — `orca-auditor` — 2026-03-28
+
+**Status verdict:** Hold at `draft / in-review`. Three required actions before advancing.
+
+**Thesis and structure:** The core argument — that inspectability is a stronger claim than raw throughput — is defensible and correctly scoped. Restrained overclaim section is good audit hygiene and should stay.
+
+**Evidence quality:**
+
+**Finding 1 — `mvhashmap.rs` is cited but not anchored (REQUIRED)**
+`fact_sources` lists `mvhashmap.rs` but the article body does not reference a single struct field, method signature, or behavioral detail from that file. This is a citation integrity gap. Either add concrete evidence from `mvhashmap.rs` to the body, or remove it from `fact_sources`.
+
+Specifically: `MvHashMap` exposes `apply_writes()` (write-set application per transaction), `remove_versions()` (pre-retry cleanup), `read()` (BTreeMap range lookup returning the highest `tx_index` strictly below the reader's index), and `validate_read()` (Phase 2 consistency check). These are all load-bearing details for the MVCC claim. None of them appear in the article.
+
+**Finding 2 — `VersionCapExceeded` / SEC-M10 is a correctness boundary the article omits (REQUIRED)**
+The `MvHashMap` implementation replaced an earlier silent-eviction policy (SEC-M10). Silent eviction would have dropped version entries still needed for Phase 2 read-set validation on hot-key workloads, corrupting correctness without surfacing an error. The current implementation returns a hard `Err(VersionCapExceeded)` instead. This is directly relevant to the article's claim that validation is explicit and auditable. A one-sentence note here would strengthen the correctness argument substantially.
+
+**Finding 3 — Re-execution cleanup step is absent (REQUIRED)**
+The article correctly identifies that conflicting transactions get re-executed, but `remove_versions()` in `mvhashmap.rs` is the mechanism that makes re-execution safe: stale provisional writes from the previous attempt are scrubbed before retry. Without this step, a re-executed transaction could read its own prior speculative writes. The article's determinism claim depends on this cleanup existing and being called correctly. This should be noted, even briefly.
+
+**Finding 4 — Three-phase pipeline attribution needs one qualifier (MINOR)**
+The article presents the three-phase pipeline (optimistic execute → sequential validate → commit) as a structural fact, which it is, but does not clarify that this structure is encoded in module-level documentation rather than enforced at the type level (e.g., through typestate or sealed traits). A one-clause qualifier would let technically careful readers distinguish "by convention" from "enforced by the compiler." This does not block advancement.
+
+**Persona and tone consistency:** Accurate. `octopus-architect` voice is consistent throughout. No marketing drift detected in sections 3–8, which was a prior risk for this theme.
+
+**What does not need to change:**
+Thesis, `AdaptiveParallelism` section (thresholds are verified from source), FV runner section (18 corpus files claim is accurate), and the overclaim constraint section.
